@@ -4,7 +4,7 @@ class DiceMazes:
         self.map = map
         print("Dice mazes init")
 
-    def roll_dice():
+    def roll_dice(self):
         print("Roll dice")
 
 if __name__ == "__main__":

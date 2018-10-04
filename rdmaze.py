@@ -1,4 +1,4 @@
-class DiceMazes:
+class RdMaze:
 
     def __init__(self, map):
         self.map = map
@@ -8,5 +8,5 @@ class DiceMazes:
         print("Roll dice")
 
 if __name__ == "__main__":
-    dice_mazes = DiceMazes("map")
+    dice_mazes = RdMaze("map")
     dice_mazes.roll_dice()

@@ -11,14 +11,12 @@ class Solution(object):
 
     def __init__(self, file_name):
         # Inititalize maze and dice
-
         self.maze = maze.Maze(file_name)
         self.die = dice.Die()
 
     def solve(self):
         # Initializes search for each heuristic
         # Tracks state and possible transitions
-
         for heuristic in (search_heuristics.die_roll_distance,
                           search_heuristics.euclidian_distance,
                           search_heuristics.manhattan_distance):
@@ -28,8 +26,7 @@ class Solution(object):
             cs = composite_state.CompositeState(ms, ds)
             self.search(cs, heuristic)
 
-    # Performs A* search of graph
-
+    # Performs A* graph search
     def search(self, cs, heuristic):
         (closed_list, g, h, f) = ({}, {}, {}, {})
         start = cs.get_state()
@@ -49,10 +46,9 @@ class Solution(object):
             x = cs.get_state()
             states_visited = states_visited + 1
 
-            # Track whats going on
-
+            # Print dice moves
             if came_from.get(x):
-                print('Going ', came_from.get(x)[1])
+                print('Moving ', came_from.get(x)[1])
             print(cs.describe_state(), '\n')
 
             if cs.goal_reached():
@@ -93,7 +89,7 @@ class Solution(object):
         print('****** Results ******')
         print('States generated: ', states_generated)
         print('Previous states:', states_visited)
-        print
+        print (" ")
 
     def print_heuristic_name(self, heuristic):
         print(heuristic.__name__.replace('_', ' ').capitalize())

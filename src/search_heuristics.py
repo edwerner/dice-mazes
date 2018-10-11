@@ -25,30 +25,30 @@ def die_roll_distance(start, goal):
 	dx, dy, on_side = math.fabs(x1 - x2), math.fabs(y1 - y2), top1 != top2
 	manhattan = manhattan_distance(start, goal)
 	
-	if dx == 0 and dy == 0 and not on_side: # [0, 0], [0, 0], 0
-		return manhattan #at goal state
-	
-	if dx == 0 and dy == 0 and on_side: # [0, 0], [0, 0], 1
-		return 4 #on side at goal state
-		
-	if dx == 0 and dy > 0 and not on_side: # [0, 0], [1, inf), 0
-		return manhattan + 2 #inline with goal
-		
-	if dx > 0 and dy == 0 and not on_side: # [1, inf), [0, 0], 0
-		return manhattan + 2 #inline with goal
-		
-	if dx >= 0 and dy == 1 and on_side: # [0, inf), [1, 1], 1
-		return manhattan 
-	
-	if dx == 1 and dy >= 0 and on_side: # [1, 1], [0, inf), 1
+	if dx == 0 and dy == 0 and not on_side:
 		return manhattan
 	
-	# These last two rules specify larger ranges than they actually cover. Previous rules account for special cases
-	# in these ranges.
-	if dx > 0 and dy > 0 and not on_side: # [1, inf), [1, inf), 0
+	if dx == 0 and dy == 0 and on_side:
+		return 4
+		
+	if dx == 0 and dy > 0 and not on_side:
+		return manhattan + 2
+		
+	if dx > 0 and dy == 0 and not on_side:
+		return manhattan + 2
+		
+	if dx >= 0 and dy == 1 and on_side:
+		return manhattan 
+	
+	if dx == 1 and dy >= 0 and on_side:
+		return manhattan
+	
+	# special cases
+	if dx > 0 and dy > 0 and not on_side:
 		return manhattan + 4
 	
-	if dx > 0 and dy > 0 and on_side: # [1, inf), [1, inf), 1
+	if dx > 0 and dy > 0 and on_side:
 		return manhattan + 2
 	
-	return manhattan # default to manhattan
+	# default
+	return manhattan

@@ -1,16 +1,20 @@
 class CompositeState:
-	"""CombinedState provides methods to perform actions on both the maze and die simultaniously."""
+	# provides functionality for both maze
+	# and dice state at the same time
 	def __init__(self, maze_state, dice_state):
 		self.maze_state = maze_state
 		self.dice_state = dice_state
 	
+	# ser current maze and dice states
 	def set_state(self, state):
 		self.maze_state.set_state(state[0])
 		self.dice_state.set_state(state[1])
 		
+	# get current grid state
 	def get_state(self):
 		return (self.maze_state.get_state(), self.dice_state.get_state())
-		
+	
+	# give current grid position description
 	def describe_state(self):
 		return "%s\n%s" % (self.maze_state.describe_state(), self.dice_state.describe_state())
 		

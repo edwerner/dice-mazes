@@ -1,12 +1,9 @@
-class RdMaze:
+import sys
+import solution
 
-    def __init__(self, map):
-        self.map = map
-        print("Dice mazes init")
+def main():
+	s = solution.Solution(sys.argv[1])
+	s.solve()
 
-    def roll_dice(self):
-        print("Roll dice")
-
-if __name__ == "__main__":
-    dice_mazes = RdMaze("map")
-    dice_mazes.roll_dice()
+if __name__ == '__main__':
+	main()

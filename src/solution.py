@@ -121,6 +121,6 @@ class Solution(object):
 
     def print_states(self, states_generated, states_visited):
         print('****** Results ******')
-        print('States generated: ', states_generated)
-        print('Previous states:', states_visited)
+        print('Nodes generated: ', states_generated)
+        print('Previous nodes:', states_visited)
         print (" ")

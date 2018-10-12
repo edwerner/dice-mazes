@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 # Possible grid moves
-Moves = ['up', 'right', 'down', 'left']
+grid_moves = ['up', 'right', 'down', 'left']
 
 # Keeps track of dice state 
 # and possible moves
@@ -33,7 +33,7 @@ class DiceState:
 	# Generates set of legal moves
 	def moves(self):
 		legalMoves = {}
-		for move in Moves:
+		for move in grid_moves:
 			self.move(move)
 
 			# Check for valid state except for six

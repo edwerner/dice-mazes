@@ -3,7 +3,7 @@
 import maze
 import dice
 
-Moves = ['up', 'right', 'down', 'left']
+grid_moves = ['up', 'right', 'down', 'left']
 
 class MazeState:
 
@@ -26,11 +26,11 @@ class MazeState:
 
 	# generates possible moves from current state
 	def moves(self):
-		moves = {}
+		possible_moves = {}
 		for i in range(4):
 			if self.position.transitions[i]:
-				moves[Moves[i]] = (self.position.transitions[i])
-		return moves
+				possible_moves[grid_moves[i]] = (self.position.transitions[i])
+		return possible_moves
 	
 	# Get current maze state
 	def get_state(self):

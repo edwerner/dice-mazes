@@ -1,4 +1,5 @@
 #!/usr/bin/python
+
 import maze
 import dice
 import maze_state
@@ -6,25 +7,14 @@ import dice_state
 import composite_state
 import search_heuristics
 
-
+# Solves mazes through graph search
+# and prints maze states and solutions
 class Solution(object):
 
+    # Inititalize maze and dice
     def __init__(self, file_name):
-        # Inititalize maze and dice
         self.maze = maze.Maze(file_name)
         self.die = dice.Die()
-
-    def solve(self):
-        # Initializes search for each heuristic
-        # Tracks state and possible transitions
-        for heuristic in (search_heuristics.die_roll_distance,
-                          search_heuristics.euclidian_distance,
-                          search_heuristics.manhattan_distance):
-            self.print_heuristic_name(heuristic)
-            ms = maze_state.MazeState(self.maze)
-            ds = dice_state.DiceState(self.die)
-            cs = composite_state.CompositeState(ms, ds)
-            self.search(cs, heuristic)
 
     # Performs A* graph search
     def search(self, cs, heuristic):
@@ -83,26 +73,24 @@ class Solution(object):
                     h[y] = heuristic(y, goal)
                     f[y] = g[y] + h[y]
         self.print_states(states_generated, states_visited)
-        print('No solution found\n')
-
-    def print_states(self, states_generated, states_visited):
-        print('****** Results ******')
-        print('States generated: ', states_generated)
-        print('Previous states:', states_visited)
+        print('No solution found')
         print (" ")
 
-    def print_heuristic_name(self, heuristic):
-        print(heuristic.__name__.replace('_', ' ').capitalize())
-        print('**************************')
+    # Initializes search for each heuristic
+    # Tracks state and possible transitions
+    def solve(self):
+        for heuristic in (search_heuristics.die_roll_distance,
+                          search_heuristics.euclidian_distance,
+                          search_heuristics.manhattan_distance):
+            self.print_heuristic_name(heuristic)
+            ms = maze_state.MazeState(self.maze)
+            ds = dice_state.DiceState(self.die)
+            cs = composite_state.CompositeState(ms, ds)
+            self.search(cs, heuristic)
 
-    def print_solution(
-        self,
-        came_from,
-        current_node,
-        first=True,
-        ):
 
-        # Prints the solution
+    # Print the solution
+    def print_solution(self, came_from, current_node, first=True):
 
         ms = maze_state.MazeState(self.maze)
         ds = dice_state.DiceState(self.die)
@@ -111,8 +99,7 @@ class Solution(object):
             last_node = current_node
             current_node = came_from.get(current_node)
 
-            retval = self.print_solution(came_from, current_node[0],
-                    False)
+            retval = self.print_solution(came_from, current_node[0], False)
 
             cs.set_state(current_node[0])
             print(cs.describe_state(), '\n')
@@ -120,8 +107,20 @@ class Solution(object):
             if first:
                 cs.set_state(last_node)
                 print(cs.describe_state())
-                print('Goal Reached!\n')
+                print(" ")
+                print('Goal Reached!')
+                print(" ")
             return retval
         else:
             print('****** Solution ******')
-            print('Beginning at:')
+            print('Starting at:')
+
+    def print_heuristic_name(self, heuristic):
+        print(heuristic.__name__.replace('_', ' ').capitalize())
+        print('**************************')
+
+    def print_states(self, states_generated, states_visited):
+        print('****** Results ******')
+        print('States generated: ', states_generated)
+        print('Previous states:', states_visited)
+        print (" ")

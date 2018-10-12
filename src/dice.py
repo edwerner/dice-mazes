@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 import dice_node
 
 class Die:
@@ -14,7 +16,8 @@ class Die:
 			self.states[i] = dice_node.DiceNode("%i" % (i))
 			self.states[i].x = i
 		
-		# create three-dimensional dice states
+		# Create three-dimensional dice states
+		# and set start and goal states
 		self.states[1].transitions = [self.states[2], self.states[4], self.states[5], self.states[3]]
 		self.states[2].transitions = [self.states[6], self.states[4], self.states[1], self.states[3]]
 		self.states[4].transitions = [self.states[2], self.states[6], self.states[5], self.states[1]]

@@ -51,7 +51,7 @@ def manhattan_distance(start, goal):
 	x2, y2 = goal[0].x, goal[0].y
 	return math.fabs(x1 - x2) + math.fabs(y1 - y2)
 
-def euclidian_distance(start, goal):
+def euclidean_distance(start, goal):
 	# Creates euclidian distance between current 
 	# position and goal state
 	# Dice must move vertically or horizontally

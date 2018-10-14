@@ -10,6 +10,7 @@ class Maze:
 	
 	def __init__(self, file_name):
 		self.states = {}
+		self.file_name = file_name
 		self.build_graph(self.read_file(file_name))
 		
 	# creates game matrix from text file
@@ -22,9 +23,15 @@ class Maze:
 		f.close()
 		
 		return rows
+
+	def print_graph(self):
+		f = open(self.file_name, 'r')
+		file_contents = f.read()
+		print(file_contents)
 	
 	# Creates game grid from generated matrix
 	def build_graph(self, matrix):
+		self.print_graph()
 		for i in range(len(matrix)):
 			for j in range(len(matrix[i])):
 				if matrix[i][j] != "*":

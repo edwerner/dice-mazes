@@ -77,10 +77,10 @@ class Solution(object):
         print (" ")
 
     # Initializes search for each heuristic
-    # Tracks state and possible transitions
+    # and tracks state and possible transitions
     def solve(self):
         for heuristic in (search_heuristics.die_roll_distance,
-                          search_heuristics.euclidian_distance,
+                          search_heuristics.euclidean_distance,
                           search_heuristics.manhattan_distance):
             self.print_heuristic_name(heuristic)
             ms = maze_state.MazeState(self.maze)

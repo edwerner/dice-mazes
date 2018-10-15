@@ -25,9 +25,14 @@ class Maze:
 		return rows
 
 	def print_graph(self):
-		f = open(self.file_name, 'r')
-		file_contents = f.read()
-		print(file_contents)
+		graph = []
+		# f = open(self.file_name, 'r')
+		# file_contents = f.read()
+		with open(self.file_name) as f:
+			content = f.readlines()
+		content = [x.strip() for x in content]
+		print("\n".join(content))
+		return content
 	
 	# Creates game grid from generated matrix
 	def build_graph(self, matrix):

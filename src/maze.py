@@ -31,7 +31,13 @@ class Maze:
 		with open(self.file_name) as f:
 			content = f.readlines()
 		content = [x.strip() for x in content]
+
+		print("**************************")
+		print("*******Current Maze*******")
+		print(" ")
 		print("\n".join(content))
+		print(" ")
+		print("**************************")
 		return content
 	
 	# Creates game grid from generated matrix

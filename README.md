@@ -13,7 +13,7 @@ python rdmaze.py puzzle_1.txt
 
 Output consists of the follows:
 
-<CURRENT MAZE>
+`<CURRENT MAZE>
 
 For each of the hueristics:
 
@@ -31,5 +31,5 @@ Then at the end:
 
 <CURRENT MAZE>
 
-<TABLE OF RESULTS FROM HEURISTICS>
+<TABLE OF RESULTS FROM HEURISTICS>`
 

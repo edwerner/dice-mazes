@@ -11,25 +11,28 @@ python PATH/TO/CODE/rdmaze.py <PATH_TO_PUZZLE_FILE>
 
 python rdmaze.py puzzle_1.txt
 
-Output consists of the follows:
+<br>
 
-`<CURRENT MAZE>
+# Output
 
-For each of the hueristics:
+<br>
 
-<HUERISTIC NAME>
+-CURRENT MAZE
 
-<LIST OF PREVIOUS STATES AND MOVES TAKEN>
+##### For each of the hueristics: #####
 
-<PRINTED RESULTS WITH NUMBER OF NODES GENERATED AND VISITED>
+-HUERISTIC NAME
 
-<LIST OF POSITIONS AND MOVES FOR SOLUTION FOUND>
+-LIST OF PREVIOUS STATES AND MOVES TAKEN
 
-<"Goal Reached!" or "No solution found">
+-PRINTED RESULTS WITH NUMBER OF NODES GENERATED AND VISITED
 
-Then at the end:
+-LIST OF POSITIONS AND MOVES FOR SOLUTION FOUND
 
-<CURRENT MAZE>
+-"Goal Reached!" or "No solution found"
 
-<TABLE OF RESULTS FROM HEURISTICS>`
+##### Then at the end: #####
 
+-CURRENT MAZE
+
+-TABLE OF RESULTS FROM HEURISTICS
